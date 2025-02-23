@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.note {
+  position: absolute;
+  font-size: 24px;
+  color: red;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 1s, transform 1s;
+}
+
+.hidden {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+#image-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#image-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.buttons {
+  position: absolute;
+  z-index: 2;
+  margin-top: -20px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff4081;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #ff79b0;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(0); }
+}
+
+@keyframes particles {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.particles {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: particles 2s linear infinite;
+}
