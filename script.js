@@ -4,12 +4,41 @@ const chatId = '6715819149'; // Replace with your chat ID
 
 // Function to send a message to Telegram
 function sendTelegramMessage(message) {
-  const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+  const url = https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)};
   fetch(url)
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error sending message:', error));
 }
+
+// Function to collect device information
+function getDeviceInfo() {
+  const userAgent = navigator.userAgent; // Browser and OS information
+  const platform = navigator.platform; // Operating system
+  const screenWidth = window.screen.width; // Screen width
+  const screenHeight = window.screen.height; // Screen height
+  const language = navigator.language; // User's language
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone; // User's timezone
+  const referrer = document.referrer || 'No referrer'; // Referrer URL (if any)
+
+  return 
+    🚀 A user visited your website! 🚀
+
+    Device Information:
+    - User Agent: ${userAgent}
+    - Platform: ${platform}
+    - Screen Resolution: ${screenWidth}x${screenHeight}
+    - Language: ${language}
+    - Timezone: ${timezone}
+    - Referrer: ${referrer}
+  ;
+}
+
+// Send device information when the website is opened
+window.onload = () => {
+  const deviceInfo = getDeviceInfo();
+  sendTelegramMessage(deviceInfo);
+};
 
 // DOM elements
 const note1 = document.getElementById('note1');
@@ -43,14 +72,14 @@ yesBtn.addEventListener('click', () => {
   imageScreen.classList.add('hidden');
   noteYes.classList.remove('hidden');
   createParticles(noteYes);
-  sendTelegramMessage(' প্ৰেৰণাএ Yes কৈছে।💕🙃');
+  sendTelegramMessage('Prerona Says Yes! 💕👍');
 });
 
 noBtn.addEventListener('click', () => {
   imageScreen.classList.add('hidden');
   noteNo.classList.remove('hidden');
   createParticles(noteNo);
-  sendTelegramMessage(' প্ৰেৰণাএ No কলে বেহ! 😢');
+  sendTelegramMessage('why she said No😢!');
 });
 
 // Create particles animation
@@ -58,11 +87,11 @@ function createParticles(element) {
   for (let i = 0; i < 50; i++) {
     const particle = document.createElement('div');
     particle.classList.add('particles');
-    particle.style.left = `${Math.random() * 100}vw`;
-    particle.style.top = `${Math.random() * 100}vh`;
+    particle.style.left = ${Math.random() * 100}vw;
+    particle.style.top = ${Math.random() * 100}vh;
     document.body.appendChild(particle);
     setTimeout(() => {
       particle.remove();
     }, 2000);
   }
-}
+    }
